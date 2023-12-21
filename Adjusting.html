@@ -216,7 +216,26 @@
              border-radius: 10px;
              font-weight: 800;
             }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background:#1B1212;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+            overflow-y: auto; /* Add this line to enable vertical scrolling */
+        }
 
+        /* Add a max-height if you want to limit the height of the sidebar */
+        /* .sidebar {
+            max-height: 100vh;
+        } */
     </style>
 </head>
 
@@ -478,7 +497,26 @@
             </div>
         </div>
     </section>
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the current page URL
+            var currentPage = window.location.pathname;
 
+            // Get the "navbar" element
+            var navbar = document.querySelector('.navbar');
+
+            // Get all the links inside the navbar
+            var links = navbar.querySelectorAll('a');
+
+            // Loop through each link and check if its href matches the current page
+            links.forEach(function (link) {
+                if (link.getAttribute('href') === currentPage) {
+                    // If there is a match, add the "active" class to the link
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
     <script>
         function toggleNavbar() {
             const navbar = document.querySelector('.navbar');
